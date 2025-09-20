@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 25 95% 55%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 30 100% 70%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.accordion-wrapper {
+  @apply shadow-[rgba(8,15,52,0.06)];
+}
+.accordion-wrapper.open {
+  @apply border-primary shadow-primary/20;
+}
+
+.accordion-item {
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+  height: auto;
+  max-height: 9999px;
+}
+
+.accordion-item.collapsed {
+  max-height: 0;
+  transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+}
+
+.accordian-icon {
+  @apply grid place-items-center min-h-[40px] min-w-[40px] self-start shadow-[0px_5px_16px_rgba(8,15,52,0.06)] rounded-full duration-300;
+}
+
+.accordion-wrapper sup {
+  @apply text-[10px];
+}
+.faq-content img {
+  @apply rounded-2xl w-full h-auto;
+}
+.faq-content b {
+  @apply lg:text-lg;
+}
+.faq-content p,
+.faq-content ul,
+.faq-content ol {
+  @apply lg:text-lg;
+}
+.faq-content h3 {
+  @apply text-xl font-semibold text-primary;
+}
+.faq-content a {
+  @apply text-primary font-semibold underline;
+  overflow-wrap: anywhere;
+}
+.faq-content > a,
+.faq-content > button,
+.buttonStyle {
+  @apply font-medium border border-primary shadow-[0px_0px_0px_4px_rgba(255,118,0,0.3)] rounded-full px-8 py-2.5 hover:bg-primary hover:text-white duration-300 no-underline;
+}
+.faq-content blockquote {
+  @apply text-primary relative gap-3 lg:text-lg pl-10;
+}
+.faq-content blockquote:before {
+  content: "";
+  @apply bg-[url('/media/faqs/quote.webp')] bg-no-repeat bg-contain absolute left-0 top-0;
+  min-width: 30px;
+  min-height: 30px;
+  margin-top: -4px;
+  display: flex;
+}
+.faq-content blockquote:after {
+  content: "”";
+  @apply bg-[url('/media/faqs/quote.webp')] bg-no-repeat bg-contain rotate-180 ml-2;
+  min-width: 30px;
+  min-height: 30px;
+  margin-bottom: -4px;
+  display: inline-flex;
+}
+.faq-content ol {
+  @apply space-y-2 list-decimal pl-7;
+}
+.faq-content ul {
+  @apply space-y-2;
+}
+.faq-content ul {
+  @apply pl-2 md:pl-2 mt-3 space-y-2;
+}
+.faq-content ul div {
+  @apply space-y-4;
+}
+/* .faq-content ul{
+  @apply list-disc;
+} */
+.faq-content ul ol,
+.faq-content ul ul {
+  @apply pl-8 md:pl-16 space-y-2 w-full block col-span-12;
+}
+.faq-content ul ol {
+  @apply list-decimal marker:font-semibold;
+}
+.faq-content ul ol li {
+  @apply pl-6;
+}
+.faq-content ul > li {
+  @apply grid grid-cols-[30px_1fr];
+}
+.faq-content ul > li::before {
+  content: "•";
+}
+.faq-content ol.num {
+  @apply list-decimal pl-4;
+}
+ol.tick {
+  list-style: none; /* remove default bullets */
+  padding: 0;
+  margin: 0;
+}
+
+ol.tick > li {
+  position: relative;
+  padding-left: 3rem; /* space for the image */
+}
+
+ol.tick > li::before {
+  content: "";
+  position: absolute;
+  top: 0.25rem;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-image: url("/media/tick.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+ol.gary-tick {
+  list-style: none; /* remove default bullets */
+  padding: 0;
+  margin: 0;
+}
+
+ol.gary-tick > li {
+  position: relative;
+  padding-left: 3rem; /* space for the image */
+}
+
+.gary-tick > li::before {
+  content: "";
+  position: absolute;
+  top: 0.25rem;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-image: url("/media/tick2.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#gray-li {
+  color: #797979;
+}
+ol.custom-counter {
+  list-style: none;
+  counter-reset: item;
+  padding-left: 0;
+}
+
+ol.custom-counter li {
+  counter-increment: item;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+ol.custom-counter li::before {
+  content: counter(item) ")";
+  position: absolute;
+  left: 0;
+  color: #797979;
+}

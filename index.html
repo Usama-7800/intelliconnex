@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      ul.tick {
+        list-style: none; /* remove default bullets */
+        padding: 0;
+        margin: 0;
+      }
+
+      ul.tick > li {
+        position: relative;
+        padding-left: 2rem; /* space for the image */
+      }
+
+      ul.tick > li::before {
+        content: "";
+        position: absolute;
+        top: 0.25rem;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background-image: url("	http://localhost:3000/media/tick.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    </style>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <ul class="!space-y-6">
+      <li>
+        <p md:!mb-6>
+          A USB Network created by RocketBox™ is far superior to a traditional
+          network - in cost, security, ease-of use, and performance.
+        </p>
+      </li>
+    </ul>
+    <div class="grid md:grid-cols-[55%_auto]">
+      <div class="space-y-3">
+        <ul class="tick !space-y-6 text-neutral-800 !ml-16">
+          <li>Lower Cost to buy, and operate</li>
+          <li>Simpler to use</li>
+          <li>
+            Better Performance than the latest Data Center and AI switches
+          </li>
+          <li>Faster than Ethernet and WiFi, even at the same rated speed</li>
+          <li>Dedicated bandwidth to concurrent transfers, and</li>
+          <li>Unparallelled data security and privacy.</li>
+          <li>Combines power and data cables into a single USB-C connection</li>
+          <li>
+            A Platform for additional Functionality and Capabilities via
+            Software
+          </li>
+        </ul>
+      </div>
+      <div class="">
+        <img
+          src="	http://localhost:3000/media/faqs/technology/rocket.png"
+          class="max-w-[300px] mx-auto"
+          alt="USB"
+        />
+      </div>
+    </div>
+  </body>
+</html>
